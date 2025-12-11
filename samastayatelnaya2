@@ -1,0 +1,10 @@
+num = input('Введите число: ')
+
+while num > 9:
+    number = 0
+    numbers = num
+    while numbers > 0:
+        number = (numbers + number) % 10
+        numbers = numbers // 10
+    num = number
+print(num)

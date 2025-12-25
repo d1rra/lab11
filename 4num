@@ -1,0 +1,25 @@
+n = input().split()
+
+digits = list(map(int, n))
+last_digit = digits[-1]
+
+count_1 = digits.count(3)
+last_count = digits.count(last_digit)
+count_even = sum(1 for d in digits if d % 2 == 0 )
+summa =  sum(d for d in digits if  d > 5)
+product = 1
+fd = False
+for d in digits:
+    if d > 7:
+        product *= d
+        fd = True
+if not fd:
+    product = 1
+
+count_2 = digits.count(0) + digits.count(5)
+print(count_1)
+print(last_count)
+print(count_even)
+print(summa)
+print(product)
+print(count_2)

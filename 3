@@ -1,0 +1,53 @@
+class Monster:
+    def __init__(self, monsterName, healthPoints, damageDealt):
+        self.monsterName = monsterName
+        self.healthPoints = int(healthPoints)
+        self.damageDealt = int(damageDealt)
+
+def startBattle():
+    name1, hp1, dmg1 = input("введите параметры монстра(имя здоровье урон) ").split()
+    name2, hp2, dmg2 = input("введите параметры монстра(имя здоровье урон) ").split()
+
+    m1 = Monster(name1, hp1, dmg1)
+    m2 = Monster(name2, hp2, dmg2)
+
+    print()
+    print("В бою участвуют:")
+    print(m1.monsterName, m1.healthPoints, m1.damageDealt)
+    print(m2.monsterName, m2.healthPoints, m2.damageDealt)
+    print()
+    print("------Бой начался------")
+    print()
+
+    winner = ""
+
+    while True:
+        print(f"{m1.monsterName} наносит удар равный {m1.damageDealt}")
+        m2.healthPoints -= m1.damageDealt
+
+        if m2.healthPoints <= 0:
+            print(f"У {m2.monsterName} осталось 0 здоровья")
+            print(f"{m1.monsterName} выиграл!!!")
+            winner = m1.monsterName
+            break
+        else:
+            print(f"У {m2.monsterName} осталось {m2.healthPoints} здоровья")
+
+        print(f"{m2.monsterName} наносит удар равный {m2.damageDealt}")
+        m1.healthPoints -= m2.damageDealt
+
+        if m1.healthPoints <= 0:
+            print(f"У {m1.monsterName} осталось 0 здоровья")
+            print(f"{m2.monsterName} выиграл!!!")
+            winner = m2.monsterName
+            break
+        else:
+            print(f"У {m1.monsterName} осталось {m1.healthPoints} здоровья")
+            print()
+            print()
+
+    print()
+    print(f"Игра окончена победил: {winner}")
+
+if __name__ == "__main__":
+    startBattle()
